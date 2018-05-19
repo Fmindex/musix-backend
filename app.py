@@ -3,12 +3,14 @@ from flask import Flask, request, redirect, url_for, Response
 from werkzeug.utils import secure_filename
 from flask_restful import Resource, Api
 import json
+from flask_cors import CORS
 
 
 UPLOAD_FOLDER = 'upload/'
 ALLOWED_EXTENSIONS = set(['wav'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+CORS(app)
 api = Api(app)
 
 def allowed_file(filename):
