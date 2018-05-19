@@ -23,9 +23,6 @@ class HelloWorld(Resource):
 
 	def post(self):
 		print(request.form)
-		if 'file' not in request.files:
-		    print('No file part')
-		    return redirect(request.url)
 		file = request.files['file']
 		# if user does not select file, browser also
 		# submit a empty part without filename
